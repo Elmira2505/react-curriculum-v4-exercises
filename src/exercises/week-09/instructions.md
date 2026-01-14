@@ -26,19 +26,17 @@ The MVP was built with proper React patterns using `useContext` and `useReducer`
 
 ### Client Enhancement Request
 
-_"This is exactly what we wanted! Can you add the ability to **edit questions after creating them**, **edit the answer options**, and **delete questions we don't need anymore**?"_
+_"This looks great so far! Can you add the ability to **edit questions after creating them**, **edit the answer options**, and **delete questions we don't need anymore**?"_
 
 ### Your Task
 
 Extend the existing survey builder by implementing question and option editing features while following the established code patterns. You'll implement several new reducer actions, update SurveyContext and create a few components for working with questions in edit mode.
 
-**Estimated Time:** 60-75 minutes total
-
 ## Instructions
 
-### Phase 1: Explore the MVP (10 minutes)
+### Phase 1: Explore the MVP
 
-1. **Interact with the working survey builder**
+1. **Interact with the working survey builder UI**
    - Create different types of questions
    - Add options to multiple-choice questions
    - Toggle to preview mode to see the survey
@@ -47,7 +45,7 @@ Extend the existing survey builder by implementing question and option editing f
 2. **Examine the code structure**
    - Look at how `SurveyContext` is implemented with the useReducer + Context pattern
    - Study the existing reducer actions in the `surveyReducer` function
-   - Notice how components use `useContext` to access state **AND** dispatch
+   - Notice how components use `useContext` to access state **and** the dispatch function
    - Explore `NewQuestion` and `QuestionDialog` components to see dialog patterns
    - Review how question type constants are organized in `surveyReducer.js`
 
@@ -55,15 +53,7 @@ Extend the existing survey builder by implementing question and option editing f
    - Find where you'll add Edit and Delete buttons
    - Locate where new reducer actions need to be added
 
-### Phase 2: Implement New Reducer Actions (15 minutes)
-
-> **Actions to implement**
->
-> - `UPDATE_QUESTION_TEXT` - Update question text by ID
-> - `DELETE_QUESTION` - Remove question from survey
-> - `ADD_OPTION_TO_QUESTION` - Add new option to multiple-choice question
-> - `UPDATE_OPTION_TEXT` - Edit existing option text
-> - `DELETE_OPTION_FROM_QUESTION` - Remove option from question
+### Phase 2: Implement 5 New Reducer Actions
 
 #### Action 1: UPDATE_QUESTION_TEXT
 
@@ -71,7 +61,6 @@ Add a new case to the `surveyReducer` function:
 
 ```javascript
 case 'UPDATE_QUESTION_TEXT':
-  // TODO: Find the question by ID and update its text
 ```
 
 **Requirements:**
@@ -85,7 +74,6 @@ Add another case to the `surveyReducer` function:
 
 ```javascript
 case 'DELETE_QUESTION':
-  // TODO: Remove question from array and clear editing state
 ```
 
 **Requirements:**
@@ -100,8 +88,6 @@ Add a new case to handle adding options to existing multiple-choice questions:
 ```javascript
 case 'ADD_OPTION_TO_QUESTION':
   // TODO: Add new option to specific question
-  // Find question by payload.questionId
-  // Add payload.optionText to that question's options array
 ```
 
 **Requirements:**
@@ -116,9 +102,6 @@ Add a new case to handle editing existing options:
 
 ```javascript
 case 'UPDATE_OPTION_TEXT':
-  // TODO: Update specific option text
-  // Find question by payload.questionId
-  // Update option at payload.optionIndex with payload.newText
 ```
 
 **Requirements:**
@@ -133,8 +116,6 @@ Add a new case to handle removing options:
 ```javascript
 case 'DELETE_OPTION_FROM_QUESTION':
   // TODO: Remove specific option from question
-  // Find question by payload.questionId
-  // Remove option at payload.optionIndex
 ```
 
 **Requirements:**
@@ -143,7 +124,7 @@ case 'DELETE_OPTION_FROM_QUESTION':
 - Remove option at `payload.optionIndex` from the question's `options` array
 - Ensure at least 2 options remain for multiple-choice questions
 
-### Phase 3: Create New UI Components (20 minutes)
+### Phase 3: Create New UI Elements
 
 #### Add Edit Functionality to QuestionItem
 
@@ -162,7 +143,8 @@ case 'DELETE_OPTION_FROM_QUESTION':
    - Each option should have:
      - Input field with current option text
      - "Save" button that dispatches `UPDATE_OPTION_TEXT`
-     - "Delete" button that dispatches `DELETE_OPTION_FROM_QUESTION` (if more than 2 options)
+     - "Delete" button that dispatches `DELETE_OPTION_FROM_QUESTION`
+       - disable button if there are 2 or fewer options
    - Add "+ Add Option" button that dispatches `ADD_OPTION_TO_QUESTION`
    - Use simple `prompt()` or inline input for new option text
 
@@ -173,7 +155,7 @@ case 'DELETE_OPTION_FROM_QUESTION':
    - Dispatches `DELETE_QUESTION` action if confirmed
    - Uses `window.confirm()` for simplicity
 
-### Phase 4: Test & Polish (10 minutes)
+### Phase 4: Test & Polish
 
 1. **Test all existing MVP functionality still works:**
    - Creating new questions
@@ -188,44 +170,6 @@ case 'DELETE_OPTION_FROM_QUESTION':
    - Deleting options (ensure minimum of 2 remains)
    - Deleting questions
    - Edge cases (deleting while editing, minimum option validation, etc.)
-
-## Visual Flow Diagrams
-
-### How Actions Flow Through the System
-
-```mermaid
-graph TD
-    A[User Clicks Edit] --> B[Dispatch UPDATE_QUESTION_TEXT]
-    B --> C[Reducer Updates State]
-    C --> D[Context Notifies Components]
-    D --> E[UI Re-renders]
-
-    style A fill:#e1f5fe
-    style C fill:#fff3e0
-    style E fill:#e8f5e8
-```
-
-### Your Implementation Tasks
-
-```mermaid
-flowchart LR
-    subgraph "Question Actions"
-        A1[UPDATE_QUESTION_TEXT] --> A2[DELETE_QUESTION]
-    end
-
-    subgraph "Option Actions"
-        B1[ADD_OPTION_TO_QUESTION] --> B2[UPDATE_OPTION_TEXT]
-        B2 --> B3[DELETE_OPTION_FROM_QUESTION]
-    end
-
-    A1 --> B1
-
-    style A1 fill:#4caf50
-    style A2 fill:#f44336
-    style B1 fill:#2196f3
-    style B2 fill:#ff9800
-    style B3 fill:#9c27b0
-```
 
 ## Assessment Criteria
 
