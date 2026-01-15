@@ -32,7 +32,7 @@ The post data comes from a fake online REST API called [JSONPlaceholder](https:/
 Functionality for interacting with JSONPlaceholder is partially implemented in `src/exercises/week-07/api.js`. You will complete the implementations of the following two functions:
 
 - `getPosts()`: Fetches a list of posts.
-- `getPost(postId)`: Fetches a single post by its ID.
+- `getSinglePost(postId)`: Fetches a single post by its ID.
 
 ### 1. Fetching data on render
 
