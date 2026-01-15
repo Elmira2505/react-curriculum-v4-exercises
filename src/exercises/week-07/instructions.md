@@ -50,7 +50,8 @@ Functionality for interacting with JSONPlaceholder is partially implemented in `
 - Once `getSinglePost()` returns data, display the post in the component.
 - The post should display its `title` and `body`. Render these in an `<h2>` and a `<p>`, respectively.
 
-### 3. A stretch goal: loading and error states
+### 3. Stretch goals
 
 - For both components, add loading states that display while data is being fetched.
 - For both components, implemenmt error handling that displays an error message if the fetch fails.
+- The `getPosts()` function returns 100 posts at a time! You can limit this by adding the query parameter `?_limit=10` to the URL used in the fetch request. This will limit the results to 10 posts.
