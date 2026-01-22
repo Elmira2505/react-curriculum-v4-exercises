@@ -49,11 +49,15 @@ First, you'll convert the uncontrolled form to use React state management instea
   - For name: `setTouched(prev => ({ ...prev, name: true }))`
   - For rating: `setTouched(prev => ({ ...prev, rating: true }))`
 
-## Part 2: Add Validation
+## Part 2: Update Form Validation
 
 Next, you'll add validation to provide immediate feedback to users.
 
-### Step 4: Create Validation Functions
+### Step 1: Allow React to Manage Validation
+
+- [ ] Remove the `required` attribute from the input elements
+
+### Step 2: Create Validation Functions
 
 - [ ] Create `validateName()` function that returns `true` if name is not empty after trimming
 - [ ] Create `validateRating()` function that returns `true` if rating is selected (not empty)
@@ -62,7 +66,7 @@ Next, you'll add validation to provide immediate feedback to users.
 - [ ] Create `getRatingError()` function that returns error message if rating is invalid AND touched
   - Example: `"Please select a rating"`
 
-### Step 5: Display Validation Messages
+### Step 3: Display Validation Messages
 
 - [ ] Add error message display below each input field
 - [ ] Show error messages only when the field has been touched AND is invalid
@@ -79,7 +83,7 @@ Next, you'll add validation to provide immediate feedback to users.
 
 Finally, you'll modify the form submission to work with your controlled inputs and validation.
 
-### Step 6: Modify handleSubmit Function
+### Step 1: Modify handleSubmit Function
 
 - [ ] Remove the `FormData` extraction from `handleSubmit`
 - [ ] Use your state variables (`name` and `rating`) directly
