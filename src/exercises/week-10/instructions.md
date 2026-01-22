@@ -58,6 +58,7 @@ In `components/Header.jsx`:
   - Checkout (/checkout)
   - Account (/account)
 - Only show the Account link when logged in
+- Users can bookmark or share a link to a specific view (deep linking)
 
 ---
 
@@ -99,8 +100,7 @@ In `pages/NotFound.jsx`:
 
 ### Exercise 1
 
-- All routes are implemented correctly
-- Shared layout works: Header/Footer always visible
+- The URL changes while navigating
 - Protected route works: `/account` is not accessible when logged out
 - Catch-all route shows NotFound for unknown paths
 
@@ -112,16 +112,22 @@ In `pages/NotFound.jsx`:
 
 ### Exercise 3
 
-- `useParams()` is used correctly
-- ProductDetails displays the URL `id`
-- Link back to Home works
-
-### Exercise 4
-
 - Home creates Links to dynamic product routes (/products/:id)
 - ProductDetails correctly reads the id and product lookup works
 
----
+### Exercise 4
+
+Checkout:
+
+- Browser back/forward buttons behave as users expect
+- Users can go to Home using navigate
+
+NotFound:
+
+- Displays the invalid pathname
+- Includes a working Link back to /
+
+## Browser back/forward buttons don't behave as users expect
 
 ## Reminders
 
