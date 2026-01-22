@@ -1,18 +1,20 @@
 import { Link, NavLink } from 'react-router-dom';
 
 export default function Header({ user }) {
+  // Active link styling helper
+  const navLinkStyles = ({ isActive }) => ({
+    fontWeight: isActive ? 700 : 400,
+    textDecoration: isActive ? 'underline' : 'none',
+    padding: '2px 6px',
+    borderRadius: 6,
+    backgroundColor: isActive ? '#eee' : 'transparent',
+  });
+
   return (
     <header style={{ padding: 12, borderBottom: '1px solid #ddd' }}>
       <h1 style={{ margin: 0 }}>Week 10 Routing Demo</h1>
 
       <nav style={{ display: 'flex', gap: 12, marginTop: 8 }}>
-        {/* TODO: Link to "/" */}
-        {/* TODO: Link to "/checkout" */}
-
-        {/* TODO: If user.isLoggedIn, show NavLink to "/account"
-            Make active state obvious (underline/bold/etc)
-        */}
-
         <a
           href="https://developer.mozilla.org/en-US/docs/Web/API/History_API"
           target="_blank"

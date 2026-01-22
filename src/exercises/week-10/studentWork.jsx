@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-
-/**
- * Exercise 1 (3–5 sentences):
- * Why is React Router useful in an SPA?
- *
- * ANSWER:
- */
 
 export default function StudentWork() {
   const [user, setUser] = useState({
@@ -29,17 +21,6 @@ export default function StudentWork() {
         margin: '0 auto',
       }}
     >
-      <Header user={user} />
-
-      <main style={{ padding: 12 }}>
-        {/* TODO: Exercise 2 — Add <Routes> with all required routes.
-            Remember: protect /account by only defining that route when logged in.
-            Also, when you render <Account>, be sure to pass the user prop (e.g. <Account user={user} />).
-        */}
-      </main>
-
-      <Footer />
-
       <aside
         style={{
           padding: 12,
@@ -55,6 +36,12 @@ export default function StudentWork() {
         </p>
         <button onClick={toggleLogin}>Toggle Logged In</button>
       </aside>
+
+      <Header user={user} />
+
+      <main style={{ padding: 12 }}></main>
+
+      <Footer />
     </div>
   );
 }

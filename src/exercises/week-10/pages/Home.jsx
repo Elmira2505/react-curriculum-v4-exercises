@@ -1,16 +1,49 @@
-export default function Home({ productIds }) {
+import { Link } from 'react-router';
+
+export default function Home({ products }) {
   return (
     <section>
       <h2>Home</h2>
       <p>
-        This route should render at <code>/</code>.
+        Click a product to navigate to <code>/products/id</code>.
       </p>
 
-      <p>Click a product id to visit a dynamic route:</p>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 12,
+        }}
+      >
+        {products.map((p) => (
+          <article
+            key={p.id}
+            style={{
+              border: '1px solid #ddd',
+              borderRadius: 10,
+              padding: 10,
+              background: '#fff',
+            }}
+          >
+            <img
+              src={p.previewImage}
+              alt={p.name}
+              style={{
+                width: '100%',
+                height: 120,
+                objectFit: 'cover',
+                borderRadius: 8,
+              }}
+            />
 
-      <ul>
-        {/* TODO: map over the productIds prop (destructured in the Home component's parameters) and render a Link to `/products/${id}` */}
-      </ul>
+            <h3 style={{ margin: '10px 0 4px' }}>{p.name}</h3>
+
+            <p style={{ margin: 0 }}>
+              <strong>${p.price.toFixed(2)}</strong>
+            </p>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }

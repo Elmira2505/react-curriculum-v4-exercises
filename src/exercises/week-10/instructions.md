@@ -4,12 +4,6 @@
 
 Welcome to Week 10 of the React curriculum! 🎉 This week focuses ONLY on **routing and navigation** inside a React Single Page Application (SPA) using **React Router**.
 
-Without routing, SPAs often have these problems:
-
-- The URL does not change while navigating
-- Browser back/forward buttons don't behave as users expect
-- Users can't bookmark or share a link to a specific view (deep linking)
-
 This week you will practice the key routing tools taught in the article:
 
 - `<Routes>` and `<Route>` for route definitions
@@ -19,9 +13,6 @@ This week you will practice the key routing tools taught in the article:
 - `useLocation()` for showing information about the current route
 - Catch-all `*` routes for 404 pages
 - Protecting routes by conditionally defining them
-
-✅ No extra app logic this week.
-Your work should stay focused on routing concepts only.
 
 ---
 
@@ -37,44 +28,7 @@ You are building a small "Routing Demo" app:
 
 ---
 
-## File Structure
-
-You will complete all exercises using these files:
-
-```
-src/exercises/week-10/
-├── instructions.md
-├── studentWork.jsx
-├── data/
-│   └── productIds.js
-├── pages/
-│   ├── Home.jsx
-│   ├── Checkout.jsx
-│   ├── Account.jsx
-│   ├── ProductDetails.jsx
-│   └── NotFound.jsx
-└── components/
-    ├── Header.jsx
-    └── Footer.jsx
-```
-
----
-
-## Exercise 1: Conceptual (Short Answer)
-
-In `studentWork.jsx`, write a **3–5 sentence answer**:
-
-**"Why is React Router useful in an SPA?"**
-
-Your answer must mention:
-
-- URL changes (deep links / bookmarking)
-- Browser back/forward history behavior
-- No full page refresh
-
----
-
-## Exercise 2: Implement Routes + Shared Layout + Protected Route
+## Exercise 1: Implement Routes + Shared Layout + Protected Route
 
 In `studentWork.jsx`, implement these routes inside `<main>`:
 
@@ -89,48 +43,47 @@ In `studentWork.jsx`, implement these routes inside `<main>`:
 ### Requirements
 
 1. You must use `<Routes>` and `<Route>`
-2. Header and Footer must always render
-3. Protect `/account`:
+2. Protect `/account`:
    - When logged out, typing `/account` in the URL must NOT show Account
    - Implement this by conditionally defining the Account route only when logged in
 
 ---
 
-## Exercise 3: Link vs NavLink + Active Styling
+## Exercise 2: Link vs NavLink + Active Styling
 
 In `components/Header.jsx`:
 
-- Use `<Link>` for internal navigation:
-  - Home (`/`)
-  - Checkout (`/checkout`)
-- Use `<NavLink>` for Account (`/account`) so it has active styling
+- Use <NavLink> for internal navigation so users can see which route is active:
+  - Home (/)
+  - Checkout (/checkout)
+  - Account (/account)
 - Only show the Account link when logged in
-- Keep the external MDN link as a normal `<a>` tag
 
 ---
 
-## Exercise 4: Dynamic Route + useParams()
+## Exercise 3: Dynamic Routes
+
+In `pages/Home.jsx`:
+
+- For each product card, add a navigation link that routes to `/products/<product-id>`
 
 In `pages/ProductDetails.jsx`:
 
-- Use `useParams()` to read `id` from the URL
+- Replace the hardcoded `const id = null;` with the real route param
 - Display the `id` value in the UI
 - Add a Link back to Home
 
-✅ No product lookup required in this week's exercises.
-Focus only on using the routing feature.
-
 ---
 
-## Exercise 5: useNavigate + useLocation + 404 Support
+## Exercise 4: useNavigate + useLocation + 404 Support
 
 ### Part A — Programmatic Navigation (Checkout)
 
 In `pages/Checkout.jsx`:
 
 - Use `useNavigate()`
-- Add a "Go Home" button that calls `navigate('/')`
-- Add a "Back" button that calls `navigate(-1)`
+- Add a "Go Home" button
+- Add a "Back" button
 
 ### Part B — NotFound Displays Invalid Path
 
@@ -146,36 +99,27 @@ In `pages/NotFound.jsx`:
 
 ### Exercise 1
 
-- Answer is 3–5 sentences
-- Mentions URL changes + deep linking
-- Mentions browser history behavior (back/forward)
-- Mentions no page refresh
-
-### Exercise 2
-
 - All routes are implemented correctly
 - Shared layout works: Header/Footer always visible
 - Protected route works: `/account` is not accessible when logged out
 - Catch-all route shows NotFound for unknown paths
 
-### Exercise 3
+### Exercise 2
 
-- Link is used for internal navigation
-- NavLink is used for Account navigation
+- NavLink is used for all internal navigation
 - Active styling is visible for Account route
 - Account link does not appear when logged out
 
-### Exercise 4
+### Exercise 3
 
 - `useParams()` is used correctly
 - ProductDetails displays the URL `id`
 - Link back to Home works
 
-### Exercise 5
+### Exercise 4
 
-- `useNavigate()` works for both `/` and `-1`
-- `useLocation()` displays the invalid path
-- 404 route works through `path="*"`
+- Home creates Links to dynamic product routes (/products/:id)
+- ProductDetails correctly reads the id and product lookup works
 
 ---
 
