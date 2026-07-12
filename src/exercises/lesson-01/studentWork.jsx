@@ -1,8 +1,6 @@
 //Lesson-01 Introduction to React
 //Exercise: Build an "About Me" Component in this file
 
-import About_me from './About_me';
-
 export default function StudentWork() {
   //add variables here
   const myName = 'Elmira ';
@@ -14,10 +12,7 @@ export default function StudentWork() {
     'Hiking',
     'Painting',
   ];
-  const myHobbies = myHobbies.map((hobbies) => {
-    <li>{hobbies}</li>;
-  });
-  // console.log(listHobbies)
+
   return (
     <div>
       {/* add JSX here 
@@ -35,9 +30,8 @@ export default function StudentWork() {
       </p>
       <h2> My Hobbies</h2>
       <ul>
-        {myHobbies.map((el, id) => {
-          return;
-          <li> {el} </li>;
+        {myHobbies.map((el) => {
+          return <li key={el}> {el} </li>;
         })}
       </ul>
     </div>
