@@ -13,17 +13,18 @@ export default function BugMutatedState() {
   let [count, setCount] = useState(0);
 
   function handleAdd() {
-    count++;
-    setCount(count);
+    // count++;
+    //setCount(count);
+    setCount((count) => count + 1);
   }
 
   return (
     <div>
-      <p>Bug 2 Count: {count}</p>
+      <p>Bug 2 Count: {count} </p>
       <button onClick={handleAdd}>Add 1</button>
     </div>
   );
 }
 
 // Explanation:
-// (Write your explanation here)
+// In React, state should be updated using the useState hook.
