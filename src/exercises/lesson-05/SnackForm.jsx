@@ -27,13 +27,6 @@ export default function SnackForm({
       rating: false,
     });
   }, [editingSnack]);
-  /*
-  if (isEditing){
-    setName(editingSnack.name)
-    setRating(editingSnack.rating)
-
-  }
-    */
 
   function handleSubmit(e) {
     e.preventDefault();
