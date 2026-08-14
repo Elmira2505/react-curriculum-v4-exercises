@@ -1,8 +1,10 @@
 import { useState } from 'react';
+
 import SnackForm from './SnackForm';
 import styles from './SnackManager.module.css';
 
 export default function SnackManager() {
+  // declare snacks object
   const [snacks, setSnacks] = useState([
     { id: 1, name: 'Chocolate Chip Cookies', rating: 5 },
     { id: 2, name: 'Apple Slices', rating: 3 },
