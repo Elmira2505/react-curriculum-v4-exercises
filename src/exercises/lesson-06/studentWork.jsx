@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { initialTasks } from './src/data/initialDate.js';
 
 export default function StudentWork() {
   const [tasks, setTasks] = useState([]);
@@ -8,11 +9,13 @@ export default function StudentWork() {
   //  #1: Data fetching + state + UI logic all mixed together
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setTasks([
+      setTasks(initialTasks);
+      /*   setTasks([
         { id: 1, title: 'Learn React', completed: true },
         { id: 2, title: 'Refactor code', completed: false },
         { id: 3, title: 'Organize files', completed: false },
       ]);
+   */
       setLoading(false);
     }, 500);
 
