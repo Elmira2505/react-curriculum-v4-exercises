@@ -3,7 +3,7 @@ import {
   RenderCounter,
 } from '../../private/components/renderCounter.jsx';
 import styles from './BookCard.module.css';
-
+// import
 function BookCard({ book, isFavorite, onToggleFavorite }) {
   const { count } = useRenderCounter('BookCard');
 
